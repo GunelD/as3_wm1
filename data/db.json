@@ -40,7 +40,6 @@
       { "id": 38, "question": "How can you optimize performance in a React application?", "answer": "Performance optimization in a React application involves techniques such as code splitting, lazy loading, using memoization, and optimizing component rendering.", "status": "Want to Learn" },
       { "id": 39, "question": "Explain the concept of 'prop drilling' in React.", "answer": "'Prop drilling' occurs when you need to pass data from a high-level component to a deep-nested child component by passing the data through intermediary components in the hierarchy.", "status": "Learned" },
       { "id": 40, "question": "What is the purpose of the 'useMemo' hook in React?", "answer": "The 'useMemo' hook in React is used to memoize the result of a computation, preventing unnecessary re-execution of that computation in subsequent renders.", "status": "Noted" }
-    ],
-    "messages": []
+    ]
   }
   
