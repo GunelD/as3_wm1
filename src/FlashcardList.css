@@ -1,0 +1,12 @@
+.flash-card-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 5px; 
+    justify-content: center; 
+  }
+  
+  .flash-card {
+    width: 80%; 
+  }
+  
+  

@@ -1,7 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import HomePage from './HomePage';
-import FlashCardsPage from './FlashCardsPage';
+import FlashCardsPage from './FlashcardPage';
 import ContactMePage from './ContactMePage';
 
 const App = () => {
@@ -14,12 +14,16 @@ const App = () => {
           <li><Link to="/contact">Contact Me</Link></li>
         </ul>
       </nav>
-      <Route path="/" exact component={HomePage} />
-      <Route path="/flash-cards" component={FlashCardsPage} />
-      <Route path="/contact" component={ContactMePage} />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/flash-cards" element={<FlashCardsPage />} />
+        <Route path="/contact" element={<ContactMePage />} />
+      </Routes>
     </Router>
   );
 };
 
 export default App;
+
+
 
