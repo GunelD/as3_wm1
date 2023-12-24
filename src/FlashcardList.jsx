@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchFlashCards, deleteFlashCard, updateFlashCard } from './API';
 import FlashCard from './Flashcard';
+import './FlashcardList.css';
 
 const FlashcardList = () => {
   const [cards, setCards] = useState([]);
