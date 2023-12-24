@@ -1,0 +1,19 @@
+.create-card-form {
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-field {
+    margin-left: 20px;
+    margin-right: 10px; 
+    padding: 10px;
+    font-size: 16px;
+    width: 420px;
+  }
+  
+  .create-button {
+    padding: 10px;
+    font-size: 16px;
+    height: 40px;
+  }
+  

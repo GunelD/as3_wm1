@@ -7,11 +7,10 @@
       "id": 1
     },
     {
-      "id": 2,
       "question": "What is HTML?",
       "answer": "HTML (Hypertext Markup Language) is the standard markup language for documents designed to be displayed in a web browser.",
       "status": "Want to Learn",
-      "lastModified": "2023-12-16T14:45:00Z"
+      "id": 2
     },
     {
       "id": 3,

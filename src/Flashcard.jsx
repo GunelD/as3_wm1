@@ -20,13 +20,13 @@ const Flashcard = ({ id, question: initialQuestion, answer: initialAnswer, statu
   return (
     <div className={`flash-card ${isFlipped ? 'flipped' : ''}`} onClick={handleFlip}>
       <div className="card-content">
-        {isEditing ? (
-          <>
-            <input type="text" value={editedQuestion} onChange={(e) => setEditedQuestion(e.target.value)} />
-            <input type="text" value={editedAnswer} onChange={(e) => setEditedAnswer(e.target.value)} />
-            <input type="text" value={editedStatus} onChange={(e) => setEditedStatus(e.target.value)} />
-          </>
-        ) : (
+      {isEditing ? (
+  <>
+    <textarea value={editedQuestion} onChange={(e) => setEditedQuestion(e.target.value)} className="editable-input" />
+    <textarea value={editedAnswer} onChange={(e) => setEditedAnswer(e.target.value)} className="editable-input" />
+    <textarea value={editedStatus} onChange={(e) => setEditedStatus(e.target.value)} className="editable-input" />
+  </>
+) : (
           <>
             <div className="side front">
               <strong>Question:</strong> {initialQuestion}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createFlashCard } from './API';
+import './CreateCardForm.css'; 
 
 const CreateCardForm = ({ onCardCreate }) => {
   const [question, setQuestion] = useState('');
@@ -11,10 +12,10 @@ const CreateCardForm = ({ onCardCreate }) => {
         question,
         answer,
         status: 'Noted',
-        lastModified: new Date().toISOString(), 
+        lastModified: new Date().toISOString(),
       });
 
-      onCardCreate(newCard); 
+      onCardCreate(newCard);
       setQuestion('');
       setAnswer('');
     } catch (error) {
@@ -23,23 +24,26 @@ const CreateCardForm = ({ onCardCreate }) => {
   };
 
   return (
-    <div>
+    <div className="create-card-form">
       <input
         type="text"
         placeholder="Question"
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
+        className="input-field"
       />
       <input
         type="text"
         placeholder="Answer"
         value={answer}
         onChange={(e) => setAnswer(e.target.value)}
+        className="input-field"
       />
-      <button onClick={handleCreateCard}>Create Card</button>
+      <button onClick={handleCreateCard} className="create-button">
+        Create Card
+      </button>
     </div>
   );
 };
 
 export default CreateCardForm;
-

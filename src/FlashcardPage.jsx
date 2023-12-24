@@ -11,8 +11,9 @@ const FlashCardsPage = () => {
 
   return (
     <div>
-      <h2>Flash Cards</h2>
+      <h2 style={{ textAlign: 'center' }}>Here You Can Learn with Flash Cards!</h2>
       <CreateCardForm onCardCreate={handleCardCreate} />
+      <br></br>
       <FlashCardList newCard={newCard} />
     </div>
   );
