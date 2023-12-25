@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchFlashCards, deleteFlashCard, updateFlashCard } from './API';
 import FlashCard from './Flashcard';
-import './FlashcardList.css';
+
 
 const FlashcardList = () => {
   const [cards, setCards] = useState([]);
@@ -23,7 +23,7 @@ const FlashcardList = () => {
   const handleDeleteCard = async (cardId) => {
     try {
       await deleteFlashCard(cardId);
-      setCards(cards.filter(card => card.id !== cardId));
+      setCards(cards.filter((card) => card.id !== cardId));
     } catch (error) {
       console.error('Error deleting card:', error);
     }
@@ -39,9 +39,15 @@ const FlashcardList = () => {
 
   const handleSaveEdit = async (cardId, editedData) => {
     try {
-      await updateFlashCard(cardId, editedData);
-      setCards(prevCards =>
-        prevCards.map(card => (card.id === cardId ? { ...card, ...editedData } : card))
+      const updatedData = {
+        ...editedData,
+        lastModified: new Date().toISOString(),
+      };
+
+      await updateFlashCard(cardId, updatedData);
+
+      setCards((prevCards) =>
+        prevCards.map((card) => (card.id === cardId ? { ...card, ...updatedData } : card))
       );
     } catch (error) {
       console.error('Error updating card:', error);
@@ -52,20 +58,21 @@ const FlashcardList = () => {
 
   return (
     <div>
-      {cards.map(card => (
-        <FlashCard
-          key={card.id}
-          id={card.id}
-          question={card.question}
-          answer={card.answer}
-          status={card.status}
-          onDelete={() => handleDeleteCard(card.id)}
-          onEdit={handleEditCard}
-          onCancelEdit={handleCancelEdit}
-          onSaveEdit={handleSaveEdit}
-          isEditing={card.id === editingCardId}
-        />
-      ))}
+{cards.map(card => (
+  <FlashCard
+    key={card.id}
+    id={card.id}
+    question={card.question}
+    answer={card.answer}
+    status={card.status}
+    lastModified={card.lastModified}  
+    onDelete={() => handleDeleteCard(card.id)}
+    onEdit={handleEditCard}
+    onCancelEdit={handleCancelEdit}
+    onSaveEdit={handleSaveEdit}
+    isEditing={card.id === editingCardId}
+  />
+))}
     </div>
   );
 };

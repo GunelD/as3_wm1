@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Flashcard.css';
 
-const Flashcard = ({ id, question: initialQuestion, answer: initialAnswer, status: initialStatus, onDelete, onEdit, isEditing, onCancelEdit, onSaveEdit }) => {
+const Flashcard = ({ id, question: initialQuestion, answer: initialAnswer, status: initialStatus, lastModified, onDelete, onEdit, isEditing, onCancelEdit, onSaveEdit }) => {
   const [editedQuestion, setEditedQuestion] = useState(initialQuestion);
   const [editedAnswer, setEditedAnswer] = useState(initialAnswer);
   const [editedStatus, setEditedStatus] = useState(initialStatus);
@@ -18,15 +18,15 @@ const Flashcard = ({ id, question: initialQuestion, answer: initialAnswer, statu
   };
 
   return (
-    <div className={`flash-card ${isFlipped ? 'flipped' : ''}`} onClick={handleFlip}>
+    <div className={`flash-card ${isFlipped && !isEditing ? 'flipped' : ''}`} onClick={handleFlip}>
       <div className="card-content">
-      {isEditing ? (
-  <>
-    <textarea value={editedQuestion} onChange={(e) => setEditedQuestion(e.target.value)} className="editable-input" />
-    <textarea value={editedAnswer} onChange={(e) => setEditedAnswer(e.target.value)} className="editable-input" />
-    <textarea value={editedStatus} onChange={(e) => setEditedStatus(e.target.value)} className="editable-input" />
-  </>
-) : (
+        {isEditing ? (
+          <>
+            <textarea value={editedQuestion} onChange={(e) => setEditedQuestion(e.target.value)} className="editable-input" />
+            <textarea value={editedAnswer} onChange={(e) => setEditedAnswer(e.target.value)} className="editable-input" />
+            <textarea value={editedStatus} onChange={(e) => setEditedStatus(e.target.value)} className="editable-input" />
+          </>
+        ) : (
           <>
             <div className="side front">
               <strong>Question:</strong> {initialQuestion}
@@ -36,6 +36,9 @@ const Flashcard = ({ id, question: initialQuestion, answer: initialAnswer, statu
             </div>
             <div className="side status">
               <strong>Status:</strong> {initialStatus}
+            </div>
+            <div className="side last-modified">
+              <strong>Last Modified:</strong> {new Date(lastModified).toLocaleString()}
             </div>
           </>
         )}
