@@ -279,6 +279,146 @@
       "answer": "The 'useMemo' hook in React is used to memoize the result of a computation, preventing unnecessary re-execution of that computation in subsequent renders.",
       "status": "Noted",
       "lastModified": "2023-11-09T18:50:00Z"
+    },
+    {
+      "id": 41,
+      "question": "Explain the concept of 'WebSockets' in web development.",
+      "answer": "'WebSockets' is a communication protocol that provides full-duplex communication channels over a single TCP connection, enabling real-time data transfer between clients and servers.",
+      "status": "Want to Learn",
+      "lastModified": "2023-11-08T16:05:00Z"
+    },
+    {
+      "id": 42,
+      "question": "What is the purpose of the 'useEffect' hook with an empty dependency array in React?",
+      "answer": "The 'useEffect' hook with an empty dependency array in React is used for running effects that don't depend on any values from the component's state or props, ensuring the effect runs only once after the initial render.",
+      "status": "Learned",
+      "lastModified": "2023-11-07T13:20:00Z"
+    },
+    {
+      "id": 43,
+      "question": "Explain the concept of 'GraphQL' in web development.",
+      "answer": "'GraphQL' is a query language for APIs that provides a more efficient, powerful, and flexible alternative to traditional REST APIs by allowing clients to request only the data they need.",
+      "status": "Noted",
+      "lastModified": "2023-11-06T10:35:00Z"
+    },
+    {
+      "id": 44,
+      "question": "How does the 'localStorage' differ from 'sessionStorage' in web development?",
+      "answer": "'localStorage' and 'sessionStorage' are both web storage objects, but 'localStorage' persists data with no expiration time, while 'sessionStorage' persists data only for the duration of the page session.",
+      "status": "Want to Learn",
+      "lastModified": "2023-11-05T07:50:00Z"
+    },
+    {
+      "id": 45,
+      "question": "What is the purpose of the 'axios' interceptors in JavaScript?",
+      "answer": "'axios' interceptors are functions that can be run before a request is sent or after a response is received, allowing you to modify requests or responses globally in your application.",
+      "status": "Learned",
+      "lastModified": "2023-11-04T05:05:00Z"
+    },
+    {
+      "id": 46,
+      "question": "Explain the concept of 'container components' in React.",
+      "answer": "'Container components' in React are components responsible for managing state and behavior, while presentational components focus on rendering UI based on props.",
+      "status": "Noted",
+      "lastModified": "2023-11-03T02:20:00Z"
+    },
+    {
+      "id": 47,
+      "question": "What is the purpose of the 'async/await' syntax in JavaScript promises?",
+      "answer": "The 'async/await' syntax in JavaScript is used to work with promises in a more synchronous-like manner, making asynchronous code easier to read and write.",
+      "status": "Want to Learn",
+      "lastModified": "2023-11-02T23:35:00Z"
+    },
+    {
+      "id": 48,
+      "question": "How can you handle routing in a React application?",
+      "answer": "Routing in a React application can be handled using libraries like 'react-router-dom,' which provides components and hooks for declarative navigation based on the URL.",
+      "status": "Learned",
+      "lastModified": "2023-11-01T20:50:00Z"
+    },
+    {
+      "id": 49,
+      "question": "Explain the purpose of the 'WebSocket API' in web development.",
+      "answer": "The 'WebSocket API' in web development provides a set of interfaces and methods for creating and managing WebSocket connections, enabling real-time bidirectional communication between clients and servers.",
+      "status": "Noted",
+      "lastModified": "2023-10-31T18:05:00Z"
+    },
+    {
+      "id": 50,
+      "question": "What is the purpose of the 'useRef' hook in React?",
+      "answer": "The 'useRef' hook in React is used for accessing and interacting with a DOM element or a functional component instance, providing a way to persist values across renders without causing re-renders.",
+      "status": "Want to Learn",
+      "lastModified": "2023-10-30T15:20:00Z"
+    },
+    {
+      "id": 51,
+      "question": "Explain the concept of 'JWT' (JSON Web Token) authentication in web development.",
+      "answer": "'JWT' authentication involves the use of JSON Web Tokens to securely transmit information between parties, commonly used for user authentication in web applications.",
+      "status": "Learned",
+      "lastModified": "2023-10-29T12:35:00Z"
+    },
+    {
+      "id": 52,
+      "question": "How can you handle form validation in a React application?",
+      "answer": "Form validation in a React application can be handled by using controlled components, Yup schema validation, or form validation libraries like 'react-hook-form.'",
+      "status": "Noted",
+      "lastModified": "2023-10-28T09:50:00Z"
+    },
+    {
+      "id": 53,
+      "question": "What is the purpose of the 'Redux Thunk' middleware in a Redux store?",
+      "answer": "'Redux Thunk' is middleware for handling asynchronous actions in a Redux store, allowing action creators to return functions instead of plain action objects.",
+      "status": "Want to Learn",
+      "lastModified": "2023-10-27T07:05:00Z"
+    },
+    {
+      "id": 54,
+      "question": "Explain the concept of 'HOC' (Higher Order Component) in React.",
+      "answer": "'HOC' in React is a function that takes a component and returns a new component with additional props or behavior, promoting reusability and composability.",
+      "status": "Learned",
+      "lastModified": "2023-10-26T04:20:00Z"
+    },
+    {
+      "id": 55,
+      "question": "What is the purpose of the 'localStorage' in web development?",
+      "answer": "'localStorage' is a web storage object that allows saving key/value pairs in a web browser with no expiration time.",
+      "status": "Noted",
+      "lastModified": "2023-10-25T01:35:00Z"
+    },
+    {
+      "id": 56,
+      "question": "How does the 'debounce' function work in JavaScript?",
+      "answer": "The 'debounce' function is used to delay the execution of a function until after a certain period of inactivity, often used in scenarios like handling user input.",
+      "status": "Want to Learn",
+      "lastModified": "2023-10-24T22:50:00Z"
+    },
+    {
+      "id": 57,
+      "question": "Explain the concept of 'serverless' architecture.",
+      "answer": "'Serverless' architecture is a cloud computing execution model where cloud providers automatically manage the infrastructure, allowing developers to focus on writing code without worrying about server management.",
+      "status": "Learned",
+      "lastModified": "2023-10-23T20:05:00Z"
+    },
+    {
+      "id": 58,
+      "question": "What is the purpose of the 'classnames' library in React?",
+      "answer": "'classnames' is a utility for conditionally joining class names together in a React application, making it easier to dynamically apply styles based on different conditions.",
+      "status": "Noted",
+      "lastModified": "2023-10-22T17:20:00Z"
+    },
+    {
+      "id": 59,
+      "question": "How can you optimize performance in a React application?",
+      "answer": "Performance optimization in a React application involves techniques such as code splitting, lazy loading, using memoization, and optimizing component rendering.",
+      "status": "Want to Learn",
+      "lastModified": "2023-10-21T14:35:00Z"
+    },
+    {
+      "id": 60,
+      "question": "Explain the concept of 'prop drilling' in React.",
+      "answer": "'Prop drilling' occurs when you need to pass data from a high-level component to a deep-nested child component by passing the data through intermediary components in the hierarchy.",
+      "status": "Learned",
+      "lastModified": "2023-10-20T11:50:00Z"
     }
   ]
 }

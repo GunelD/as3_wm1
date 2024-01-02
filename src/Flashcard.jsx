@@ -1,20 +1,68 @@
 import React, { useState } from 'react';
 import './Flashcard.css';
+import axios from 'axios';
 
-const Flashcard = ({ id, question: initialQuestion, answer: initialAnswer, status: initialStatus, lastModified, onDelete, onEdit, isEditing, onCancelEdit, onSaveEdit }) => {
+const API_URL = 'http://localhost:3500';
+
+const Flashcard = ({
+  id,
+  question: initialQuestion,
+  answer: initialAnswer,
+  status: initialStatus,
+  lastModified,
+  onDelete,
+  onEdit,
+  isEditing,
+  onCancelEdit,
+  onSaveEdit,
+  onSelect,
+  isSelected,
+}) => {
   const [editedQuestion, setEditedQuestion] = useState(initialQuestion);
   const [editedAnswer, setEditedAnswer] = useState(initialAnswer);
   const [editedStatus, setEditedStatus] = useState(initialStatus);
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleFlip = (e) => {
-    if (!isEditing && e.target.tagName !== 'BUTTON') {
+    if (!isEditing && e.target.tagName !== 'BUTTON' && !isSelected) {
       setIsFlipped(!isFlipped);
     }
   };
 
-  const handleSaveEdit = () => {
-    onSaveEdit(id, { question: editedQuestion, answer: editedAnswer, status: editedStatus });
+  const handleSaveEdit = async () => {
+    try {
+      const updatedData = {
+        question: editedQuestion,
+        answer: editedAnswer,
+        status: editedStatus,
+      };
+
+      await axios.put(`${API_URL}/cards/${id}`, updatedData);
+
+      onSaveEdit(id, updatedData);
+    } catch (error) {
+      console.error('Error updating card:', error);
+    }
+
+    setIsFlipped(false);
+  };
+
+  const handleSelect = () => {
+    onSelect(id);
+    setIsFlipped(false);
+  };
+
+  const handleSendEmail = async () => {
+    const cardDetails = {
+      id,
+      question: editedQuestion,
+      answer: editedAnswer,
+      status: editedStatus,
+      lastModified: new Date(lastModified).toLocaleString(),
+    };
+
+    // Send the card details over email in JSON format (replace this with your actual email sending logic)
+    console.log('Sending email with data:', JSON.stringify(cardDetails));
   };
 
   return (
@@ -28,6 +76,9 @@ const Flashcard = ({ id, question: initialQuestion, answer: initialAnswer, statu
           </>
         ) : (
           <>
+            <div className="selection-checkbox">
+              <input type="checkbox" checked={isSelected} onChange={handleSelect} />
+            </div>
             <div className="side front">
               <strong>Question:</strong> {initialQuestion}
             </div>
@@ -53,6 +104,7 @@ const Flashcard = ({ id, question: initialQuestion, answer: initialAnswer, statu
           <>
             <button onClick={() => onEdit(id)}>Edit</button>
             <button onClick={() => onDelete(id)}>Delete</button>
+            <button onClick={handleSendEmail}>Send Email</button>
           </>
         )}
       </div>
