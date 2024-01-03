@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { fetchFlashCards, deleteFlashCard, updateFlashCard, fetchStatuses } from './API';
 import FlashCard from './Flashcard';
 import './FlashcardList.css';
@@ -11,18 +11,14 @@ const FlashcardList = () => {
   const [statuses, setStatuses] = useState([]);
   const [statusFilter, setStatusFilter] = useState('');
   const [sortOption, setSortOption] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
-  const containerRef = useRef();
-
-  
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const data = await fetchFlashCards(sortOption, currentPage);
-        setCards((prevCards) => [...prevCards, ...data]);
+        const data = await fetchFlashCards(sortOption);
+        setCards(data);
         setLoading(false);
 
         const statusData = await fetchStatuses();
@@ -33,29 +29,8 @@ const FlashcardList = () => {
       }
     };
 
-    if (currentPage === 1 && !loading) {
-      fetchData();
-    }
-    const handleScroll = () => {
-      if (containerRef.current) {
-        const container = containerRef.current;
-        const scrollPosition = container.scrollTop + container.clientHeight;
-        const scrollHeight = container.scrollHeight;
-    
-        if (scrollPosition >= scrollHeight - container.clientHeight && !loading) {
-          setCurrentPage((prevPage) => prevPage + 1);
-        }
-      }
-    };
-    
-
-    const container = containerRef.current;
-    container.addEventListener('scroll', handleScroll);
-
-    return () => {
-      container.removeEventListener('scroll', handleScroll);
-    };
-  }, [sortOption, currentPage, loading]);
+    fetchData();
+  }, [sortOption]);
 
   const handleDeleteCard = async (cardId) => {
     try {
@@ -133,8 +108,30 @@ const FlashcardList = () => {
     )
     .filter((card) => (statusFilter ? card.status.toLowerCase() === statusFilter : true));
 
+  const handleSendSelectedCards = async () => {
+    try {
+      const selectedCards = cards.filter((card) => selectedCardIds.includes(card.id));
+
+      const emailSubject = 'Flashcard Details';
+      const emailBody = selectedCards
+        .map(
+          (card) =>
+            `ID: ${card.id}\nQuestion: ${card.question}\nAnswer: ${card.answer}\nStatus: ${card.status}\nLast Modified: ${new Date(
+              card.lastModified
+            ).toLocaleString()}\n\n`
+        )
+        .join('\n');
+
+      const mailtoURL = `mailto:?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+      window.location.href = mailtoURL;
+    } catch (error) {
+      console.error('Error sending selected cards:', error);
+    }
+  };
+
   return (
-    <div className="container" ref={containerRef}>
+    <div className="container">
       <div className="search-filter-container">
         <div className="search-input">
           <label>Search for Cards: </label>
@@ -164,6 +161,11 @@ const FlashcardList = () => {
             <option value="lastModifiedNewToOld">New to Old Modified</option>
           </select>
         </div>
+      </div>
+      <div className="send-selected-container">
+        <button className="send-selected-button" onClick={handleSendSelectedCards} disabled={selectedCardIds.length === 0}>
+          Send Selected Cards
+        </button>
       </div>
       {filteredCards.map((card) => (
         <FlashCard

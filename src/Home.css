@@ -1,0 +1,16 @@
+.home {
+    text-align: center;
+}
+
+#readdress {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+a {
+    font-weight: 500;
+}
+
+p {
+font-size: 20px;
+}

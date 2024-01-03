@@ -21,7 +21,7 @@
 
 
 .nav-button a {
-  color: rgb(254, 212, 219)
+  color: rgb(254, 212, 219);
 }
 
 a:-webkit-any-link {
@@ -35,3 +35,4 @@ text-decoration: none;
 .nav-button:hover a {
   color: rgb(159, 6, 159); 
 }
+

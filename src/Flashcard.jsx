@@ -52,19 +52,6 @@ const Flashcard = ({
     setIsFlipped(false);
   };
 
-  const handleSendEmail = async () => {
-    const cardDetails = {
-      id,
-      question: editedQuestion,
-      answer: editedAnswer,
-      status: editedStatus,
-      lastModified: new Date(lastModified).toLocaleString(),
-    };
-
-    // Send the card details over email in JSON format (replace this with your actual email sending logic)
-    console.log('Sending email with data:', JSON.stringify(cardDetails));
-  };
-
   return (
     <div className={`flash-card ${isFlipped && !isEditing ? 'flipped' : ''}`} onClick={handleFlip}>
       <div className="card-content">
@@ -104,7 +91,6 @@ const Flashcard = ({
           <>
             <button onClick={() => onEdit(id)}>Edit</button>
             <button onClick={() => onDelete(id)}>Delete</button>
-            <button onClick={handleSendEmail}>Send Email</button>
           </>
         )}
       </div>
