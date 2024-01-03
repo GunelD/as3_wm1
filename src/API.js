@@ -12,7 +12,6 @@ export const fetchFlashCards = async () => {
 }
 };
 
-
 export const fetchStatuses = async () => {
   try {
     const response = await axios.get(`${API_URL}/cards`);

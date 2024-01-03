@@ -8,11 +8,11 @@
       "lastModified": "2023-12-17T12:30:00Z"
     },
     {
-      "question": "What is HTML?",
-      "answer": "HTML (Hypertext Markup Language) is the standard markup language for documents designed to be displayed in a web browser.",
-      "status": "Want to Learn",
-      "lastModified": "2023-12-25T22:11:57.365Z",
-      "id": 2
+      "id": 2,
+      "question": "What is the purpose of the 'DOCTYPE' declaration in HTML?",
+      "answer": "The 'DOCTYPE' declaration in HTML is used to specify the version and type of the document. It helps the browser to render the web page correctly by indicating the HTML version in use.",
+      "status": "Noted",
+      "lastModified": "2024-01-04T03:32:00Z"
     },
     {
       "id": 3,
