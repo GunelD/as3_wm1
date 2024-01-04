@@ -7,7 +7,7 @@ import './App.css';
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="https://github.com/GunelD/as3_wm1.git">
       <nav className="navbar">
         <button className="nav-button"><Link to="/">Home</Link></button>
         <button className="nav-button"><Link to="/flash-cards">Flash Cards</Link></button>
