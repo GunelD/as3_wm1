@@ -1,13 +1,6 @@
 {
   "cards": [
     {
-      "id": 1,
-      "question": "What is JavaScript?",
-      "answer": "JavaScript is a programming language that enables interactive web pages.",
-      "status": "Noted",
-      "lastModified": "2023-12-17T12:30:00Z"
-    },
-    {
       "id": 2,
       "question": "What is the purpose of the 'DOCTYPE' declaration in HTML?",
       "answer": "The 'DOCTYPE' declaration in HTML is used to specify the version and type of the document. It helps the browser to render the web page correctly by indicating the HTML version in use.",
@@ -419,6 +412,13 @@
       "answer": "'Prop drilling' occurs when you need to pass data from a high-level component to a deep-nested child component by passing the data through intermediary components in the hierarchy.",
       "status": "Learned",
       "lastModified": "2023-10-20T11:50:00Z"
+    },
+    {
+      "question": "sdfghjkl",
+      "answer": "sdfghjnkm,l;.",
+      "status": "Noted",
+      "lastModified": "2024-01-03T23:55:37.853Z",
+      "id": 61
     }
   ]
 }
