@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/GunelD/as3_wm1.git/static/css/main.af075133.css",
-    "main.js": "/GunelD/as3_wm1.git/static/js/main.35ab3446.js",
+    "main.js": "/GunelD/as3_wm1.git/static/js/main.787f7669.js",
     "static/js/787.38f16daf.chunk.js": "/GunelD/as3_wm1.git/static/js/787.38f16daf.chunk.js",
     "index.html": "/GunelD/as3_wm1.git/index.html",
     "main.af075133.css.map": "/GunelD/as3_wm1.git/static/css/main.af075133.css.map",
-    "main.35ab3446.js.map": "/GunelD/as3_wm1.git/static/js/main.35ab3446.js.map",
+    "main.787f7669.js.map": "/GunelD/as3_wm1.git/static/js/main.787f7669.js.map",
     "787.38f16daf.chunk.js.map": "/GunelD/as3_wm1.git/static/js/787.38f16daf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.af075133.css",
-    "static/js/main.35ab3446.js"
+    "static/js/main.787f7669.js"
   ]
 }
